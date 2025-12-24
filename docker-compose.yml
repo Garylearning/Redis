@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  redis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: redis:wechat-cloud
+    container_name: redis-server
+    ports:
+      - "6379:6379"  # 主机端口:容器端口
+    volumes:
+      - redis-data:/data  # 数据持久化
+    environment:
+      # Redis 密码（可选，如果不需要密码可以删除或注释这行）
+      - REDIS_PASSWORD=${GHLgjw168168+}
+      # Redis 最大内存（可选）
+      # - REDIS_MAXMEMORY=256mb
+      # AOF 持久化（默认启用，设为 false 可禁用）
+      # - REDIS_AOF=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  redis-data:
+    driver: local
+
