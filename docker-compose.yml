@@ -13,7 +13,10 @@ services:
       - redis-data:/data  # 数据持久化
     environment:
       # Redis 密码（可选，如果不需要密码可以删除或注释这行）
-      - REDIS_PASSWORD=${GHLgjw168168+}
+      # 方式一：从环境变量读取（推荐）
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-}
+      # 方式二：直接设置密码（不推荐，建议使用 .env 文件）
+      # - REDIS_PASSWORD=GHLgjw168168+
       # Redis 最大内存（可选）
       # - REDIS_MAXMEMORY=256mb
       # AOF 持久化（默认启用，设为 false 可禁用）
