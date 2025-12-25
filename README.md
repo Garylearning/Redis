@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Redis Docker 部署项目
 
 基于 Docker 的 Redis 服务器部署方案，支持本地开发和微信云托管部署。
@@ -516,3 +517,7 @@ environment:
 ---
 
 **如有问题，请查看故障排查部分或提交 Issue。**
+=======
+# Redis
+Redis微信云托管远程部署
+>>>>>>> a927d38caee1a9809814b2e50a08f68f7144aafb
